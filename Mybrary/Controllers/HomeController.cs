@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mybrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,19 @@ namespace Mybrary.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Advanced()
+        {
+            ViewBag.Message = "Your contact page.";
+            var person = new Person()
+            {
+            FirstName = "Shawn",
+            LastName = "Murtagh"
+            };
+            return View(person);
+
+
         }
     }
 }
