@@ -43,3 +43,15 @@
 }
 
 </table>
+
+
+<script>
+    function ViewModel(authors) {
+        var self = this;
+
+        self.authors = authors;
+    };
+
+    var viewModel = new ViewModel(@Html.Raw(Json.Encode(Model));
+    ko.applyBindings(viewModel);
+</script>
