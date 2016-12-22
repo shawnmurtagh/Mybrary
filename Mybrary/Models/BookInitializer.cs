@@ -14,8 +14,8 @@ namespace Mybrary.Models
             var author = new Author
             {
                 Biography = "...",
-                FirstName = "Jamie",
-                LastName = "Munro"  
+                FirstName = "Harper",
+                LastName = "Lee"  
             };
 
             var books = new List<Book>
