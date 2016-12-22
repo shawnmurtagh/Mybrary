@@ -227,6 +227,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuthorsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookInitializer.cs" />
     <Compile Include="Models\Mybrary.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
