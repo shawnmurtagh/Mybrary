@@ -20,31 +20,25 @@
         <th>
             @Html.DisplayNameFor(model => model.Biography)
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+
+    <tr data-bind="foreach: authors">
+        <td data-bind="text: FirstName"></td>
+        <td data-bind="text: LastName"></td>
+        <td data-bind="text: Biography"></td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Biography)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AuthorID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AuthorID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AuthorID })
+            <a data-bind="attr: { href: '@Url.Action("Details")/' + id }" class="btn btn-info">Details</a>|
+            <a data-bind="attr: { href: '@Url.Action("Edit")/' + id }" class="btn btn-info">Edit</a> |
+            <a data-bind="attr: { href: '@Url.Action("Delete")/' + id }" class="btn btn-info">Delete</a>
         </td>
     </tr>
-}
+
 
 </table>
 
-
+<script src="~/Scripts/knockout-3.4.0.js"></script>
 <script>
     function ViewModel(authors) {
         var self = this;
@@ -52,6 +46,6 @@
         self.authors = authors;
     };
 
-    var viewModel = new ViewModel(@Html.Raw(Json.Encode(Model));
+    var viewModel = new ViewModel(@Html.HtmlConvertToJson(@Model));
     ko.applyBindings(viewModel);
 </script>

@@ -20,9 +20,12 @@ namespace Mybrary
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            var testContext = new MybraryEntities();
-            Database.SetInitializer(new BookInitializer());
-            testContext.Database.Initialize(true);
+            
+            //TODO: learn whether this type of data seeding only works in code first
+            //var testContext = new MybraryEntities();
+            //Database.SetInitializer(new BookInitializer());
+            //testContext.Database.Initialize(true); 
+
         }
     }
 }
