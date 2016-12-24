@@ -5,6 +5,8 @@
 <div class="div">
     <h1>Hello <span data-bind="text: name"></span>! Welcome back to your personal</h1>
     <h1 class="brand">Mybrary</h1>
+    <p>An Open-Source App for Booksharers</p>
+    <h2>See how it works</h2>
     <h2>Books: <span data-bind="text: books.length"></span></h2>
     <h2>Authors: <span data-bind="text: authors.length"></span></h2>
     <h2>Reviews: <span data-bind="text: reviews.length"></span></h2>
@@ -14,17 +16,43 @@
 </div>
 @section Scripts{
     <script>
-        function ViewModel() {
-            var self = this;
-            self.name = "Shawn";
-            self.books = [];
-            self.authors = [];
-            self.reviews = [];
-            self.currentBorrows = [];
-            self.allTimeBorrows = [];
+        //objects
+        function Book(title, author){
 
         }
 
+        function addBook(title, author) {
+            var self = this;
+            self.title = title;
+            self.author = author;
+            self.borrowed = false;
+            self.borrower = "Not borrowed";
+            self.borrwedDate = "Not borrowed";
+
+            self.borrow = function (borrower) {
+                self.borrowed = true;
+                self.borrower = borrower;
+                self.borrowedDate = Date.prototype.getDate;
+            }
+            self.return = function () {
+                self.borrowed = false;
+                self.borrowedDate = "Not borrowed";
+            }
+        }
+
+
+        //ko viewmodel
+        function ViewModel() {
+            var self = this;
+            self.name = "Shawn";
+            self.books = ko.observableArray([]);
+            self.authors = ko.observableArray([]);
+            self.reviews = ko.observableArray([]);
+            self.currentBorrows = ko.observableArray([]);
+            self.allTimeBorrows = ko.observableArray([]);
+        }
+
+        //ko apply bindings
         var viewModel = new ViewModel();
         ko.applyBindings(viewModel);
     </script>
