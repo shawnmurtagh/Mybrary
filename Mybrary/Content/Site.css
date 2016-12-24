@@ -1,6 +1,10 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('Images/old-library-wallpaper-1.jpg');
+    background-attachment:fixed;
+    font: 3em;
+    color:white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +25,19 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+h1{
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+h1.brand{
+    font-size:8em;
+    font-weight: bold;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    margin: auto;
 }

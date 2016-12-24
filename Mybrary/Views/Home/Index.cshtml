@@ -2,13 +2,27 @@
     ViewBag.Title = "Mybrary";
 }
 
-<h1>Hello <span data-bind="text: name"></span>!</h1>
+<div class="div">
+    <h1>Hello <span data-bind="text: name"></span>! Welcome back to your personal</h1>
+    <h1 class="brand">Mybrary</h1>
+    <h2>Books: <span data-bind="text: books.length"></span></h2>
+    <h2>Authors: <span data-bind="text: authors.length"></span></h2>
+    <h2>Reviews: <span data-bind="text: reviews.length"></span></h2>
+    <h2>Current Borrows: <span data-bind="text: currentBorrows.length"></span></h2>
+    <h2>All-time Borrows: <span data-bind="text: allTimeBorrows.length"></span></h2>
 
+</div>
 @section Scripts{
     <script>
         function ViewModel() {
             var self = this;
             self.name = "Shawn";
+            self.books = [];
+            self.authors = [];
+            self.reviews = [];
+            self.currentBorrows = [];
+            self.allTimeBorrows = [];
+
         }
 
         var viewModel = new ViewModel();
